@@ -4,7 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +22,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListTanaman extends AppCompatActivity {
+public class ListTanaman extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public static List<Tanaman> arrayTanaman = new ArrayList<Tanaman>();
 
@@ -28,6 +32,19 @@ public class ListTanaman extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_tanaman);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.listToolbar);
+        toolbar.setTitle("Add Your Plant's Profile");
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerList);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.list_nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -162,5 +179,43 @@ public class ListTanaman extends AppCompatActivity {
         }
         adapterTanaman = new AdapterTanaman(this,R.layout.nama_tanaman, tanamans);
         listTanaman.setAdapter(adapterTanaman);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        int position = menuItem.getItemId();
+        switch (position){
+            case R.id.nav_latestPlan : {
+                Intent intent = new Intent(this, DetailTanaman.class);
+                intent.putExtra("indeksTanaman", ListTanaman.arrayTanaman.size()-1);
+                startActivity(intent);
+            }
+            break;
+            case R.id.nav_list : {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerList);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+            break;
+            case R.id.nav_instruction : break;
+            case R.id.nav_settings : break;
+        }
+        return true;
+    }
+
+     @Override
+     public void onStart(){
+         super.onStart();
+         NavigationView navigationView = (NavigationView) findViewById(R.id.list_nav_view);
+         navigationView.getMenu().getItem(1).setChecked(true);
+     }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerList);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
