@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tanaman">
+        <item>LETTUCE</item>
+        <item>BASELLA</item>
+        <item>CABBAGE</item>
+    </array>
+    <array name="contextMenu">
+        <item>View Status</item>
+        <item>View Instruction</item>
+        <item>Remove Plant</item>
+    </array>
+</resources>
