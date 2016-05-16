@@ -196,7 +196,11 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
                 drawer.closeDrawer(GravityCompat.START);
             }
             break;
-            case R.id.nav_instruction : break;
+            case R.id.nav_instruction : {
+                Intent intent = new Intent(this, InstructionList.class);
+                startActivity(intent);
+            }
+            break;
             case R.id.nav_settings : break;
         }
         return true;

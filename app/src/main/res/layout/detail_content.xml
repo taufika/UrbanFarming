@@ -35,8 +35,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:id="@+id/gambarSpesifikTanaman"
-        android:elevation="4dp"
+        android:elevation="2dp"
         />
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@android:drawable/ic_menu_info_details"
+        android:layout_alignBottom="@id/gambarSpesifikTanaman"
+        android:layout_alignEnd="@id/gambarSpesifikTanaman"
+        android:layout_alignRight="@id/gambarSpesifikTanaman"
+        android:elevation="3dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -219,20 +227,31 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="um"
+                    android:text="nm"
                     android:layout_toRightOf="@+id/panjangGelombang"
                     android:layout_alignBottom="@+id/panjangGelombang"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ON"
+                    android:text="OFF"
                     android:textSize="52dp"
                     android:id="@+id/onOffLampu"
-                    android:textColor="@android:color/holo_green_light"
+                    android:textColor="#FF0000"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabsync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/coverImage"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_popup_sync"
+        android:tint="@android:color/white"
+        />
 
 </RelativeLayout>

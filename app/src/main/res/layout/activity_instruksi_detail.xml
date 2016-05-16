@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.akbar.taufik.urbanfarming.InstruksiDetail">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How to plant cabbage"
+                android:textSize="26dp"
+                android:id="@+id/judulInstruksi"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#cccccc"
+                android:layout_below="@id/judulInstruksi"
+                android:layout_marginTop="8dp"
+                android:id="@+id/separatorJudul" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:id="@+id/howToPlant"
+                android:layout_below="@id/separatorJudul">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="24dp"
+                    android:src="@drawable/plant"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="18"
+                    android:layout_height="wrap_content"
+                    android:text="Tips &amp; Tricks to Grow Your Plants"
+                    android:textSize="20dp"
+                    android:textColor="#4BACC6"
+                    android:layout_gravity="center_vertical"
+                    android:textAlignment="center"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="24dp"
+                    android:src="@drawable/plant" />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/howToPlant"
+                android:src="@drawable/basil_gede"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/gambarGede"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BASIL"
+                android:textSize="34dp"
+                android:layout_alignTop="@id/gambarGede"
+                android:layout_marginTop="83dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:id="@+id/namaGede"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:layout_below="@id/gambarGede">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="ini ceritanya buat ph dll"
+                    android:id="@+id/kondisiPHDLL"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ini ceritanya growing condition"
+                    android:id="@+id/growingCondition"
+                    android:layout_marginTop="16dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ceritanya ini harvesting"
+                    android:id="@+id/harvesting"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
